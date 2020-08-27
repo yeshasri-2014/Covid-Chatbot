@@ -1,0 +1,96 @@
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
+intents:
+- greet
+- goodbye
+- corona-symptoms
+- corona-common-symptoms
+- corona-stats-india
+- corona-stats-state
+- corona-prevention-cure
+- state
+- corona-hospitals
+entities:
+- severity
+- country
+- state
+- cure
+- facility
+slots:
+  country:
+    type: text
+  cure:
+    type: categorical
+    values:
+    - prevent
+    - prevention
+    - cure
+    - food
+    - immunity
+  facility:
+    type: text
+  severity:
+    type: categorical
+    values:
+    - mild
+    - common
+    - severe
+    - serious
+  state:
+    type: text
+responses:
+  utter_greet:
+  - text: Hey! Welcome to Covid chatbot. How can i help you?
+  utter_goodbye:
+  - text: Bye,Nice talking with you
+  utter_corona_symptoms:
+  - text: Fever,dry cough,shortness of breath and tiredness are the symptoms of corona
+      virus
+  utter_corona_common_symptoms:
+  - text: fever,dry cough and tiredness are the {severity} symptoms of corona virus
+  utter_corona_mild_symptoms:
+  - text: aches and pains,sore throat, diarrhoea,conjunctivitis,headache, loss of
+      taste or smell,a rash on skin, or discolouration of fingers or toes, are the
+      {severity} symptoms of corona virus
+  utter_corona_serious_symptoms:
+  - text: difficulty breathing or shortness of breath,chest pain or pressure, loss
+      of speech or movement are {severity} symptoms of corona virus
+  utter_corona_stats_country:
+  - text: '{country} stats :'
+  utter_corona_stats_state:
+  - text: '{state} stats :'
+  utter_corona_hospitals:
+  - text: 'Covid-19 hospitals in {state}:'
+  utter_corona_prevention:
+  - text: STAY home, KEEP a safe distance, WASH hands often, COVER your cough and
+      Wear a mask
+  utter_corona_cure:
+  - text: To date, there are no specific vaccines or medicines for COVID-19. Treatments
+      are under investigation.Best cure is self-care, healthy life style and boosting
+      your immunity.
+  utter_corona_food:
+  - text: You should eat a variety of fresh and unprocessed foods every day to get
+      the vitamins, minerals, dietary fibre, protein and antioxidants your body needs.
+      Drink enough water. Eat fruits, vegetables, legumes (e.g. lentils, beans), nuts
+      and whole grains (e.g. unprocessed maize, millet, oats, wheat, brown rice or
+      starchy tubers or roots such as potato, yam, taro or cassava), and foods from
+      animal sources (e.g. meat, fish, eggs and milk). For snacks, choose raw vegetables
+      and fresh fruit rather than foods that are high in sugar, fat or salt.
+actions:
+- utter_greet
+- utter_goodbye
+- utter_corona_symptoms
+- utter_corona_common_symptoms
+- utter_corona_mild_symptoms
+- utter_corona_serious_symptoms
+- action_corona_symptoms
+- action_corona_stats_country
+- action_corona_stats_state
+- utter_corona_stats_country
+- utter_corona_stats_state
+- utter_corona_prevention
+- utter_corona_cure
+- utter_corona_food
+- utter_corona_hospitals
+- action_corona_hospitals
